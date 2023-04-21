@@ -21,15 +21,15 @@ void exchange_nodes(listint_t *node1, listint_t *node2)
 **/
 void insertion_sort_list(listint_t **list)
 {
-	int tmp;
+	listint_t *tmp = *list;
 
 	while((*list)->next)
 	{
 		(*list) = (*list)->next;
 		if((*list)->n < (*list)->prev->n)
 		{
-			exchange_nodes(list,list->prev);
-			print_list(list);
+			exchange_nodes(tmp,(*list)->prev);
+			print_list(tmp);
 			while (list->prev)
 			{
 				if ((*list)-n < (*list)->prev->n)
