@@ -5,14 +5,14 @@
 **/
 void insertion_sort_list(listint_t **list)
 {
-	while(list->next)
+	while((*list)->next)
 	{
-		list = list->next;
-		if(list->n < list->prev->n)
+		(*list) = (*list)->next;
+		if((*list)->n < (*list)->prev->n)
 		{
-			tmp = list->prev->n;
-			list->prev->n = list->n;
-			list->n = tmp;
+			tmp = (*list)->prev->n;
+			(*list)->prev->n = (*list)->n;
+			(*list)->n = tmp;
 		}
 	}
 }
