@@ -34,10 +34,10 @@ void insertion_sort_list(listint_t **list)
 			{
 				if ((*list)->n < (*list)->prev->n)
 				{
-					exchange_nodes(list,list->prev);
+					exchange_nodes(tmp,(*list)->prev);
 					print_list(tmp);
 				}
-				list = list->prev;
+				list = (*list)->prev;
 			}
 		}
 	}
