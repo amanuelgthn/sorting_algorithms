@@ -30,12 +30,12 @@ void insertion_sort_list(listint_t **list)
 		{
 			exchange_nodes(tmp,(*list)->prev);
 			print_list(tmp);
-			while (list->prev)
+			while ((*list)->prev)
 			{
-				if ((*list)-n < (*list)->prev->n)
+				if ((*list)->n < (*list)->prev->n)
 				{
 					exchange_nodes(list,list->prev);
-					print_list(list);
+					print_list(tmp);
 				}
 				list = list->prev;
 			}
