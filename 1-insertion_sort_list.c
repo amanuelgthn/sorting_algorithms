@@ -1,12 +1,19 @@
 #include"sort.h"
-listint_t *create_node(void)
+/**
+*exchange_nodes-exchange consecutive nodes if the later node has a higher data value
+*@node_high: node with a higher data value
+*@node_low: node with a lower data value
+**/
+void exchange_nodes(listint_t *node1, listint_t *node2)
 {
-	listint_t *node = malloc(sizeof(listint_t));
+	listint_t *tmp;
 
-	if (node == NULL)
-		return (NULL);
-	return (node);
-}
+	tmp = node1->next;
+	node1->next = node2->next;
+	node2->next = tmp;
+	tmp = node1->prev;
+	node1->prev = node2->prev;
+	node2->prev = tmp;
 /**
 *insertion_sort-that sorts a doubly linked list of integers in ascending order
 *list-doubly linked list to be sorted
@@ -20,10 +27,17 @@ void insertion_sort_list(listint_t **list)
 		(*list) = (*list)->next;
 		if((*list)->n < (*list)->prev->n)
 		{
-			node->n = (*list)->n;
-			(*list)->prev->prev = node;
-			node
-			(*list)->n = tmp;
+			exchange_nodes(list,list->prev);
+			print_list(list);
+			while (list->prev)
+			{
+				if ((*list)-n < (*list)->prev->n)
+				{
+					exchange_nodes(list,list->prev);
+					print_list(list);
+				}
+				list = list->prev;
+			}
 		}
 	}
 }
