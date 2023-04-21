@@ -37,7 +37,7 @@ void insertion_sort_list(listint_t **list)
 					exchange_nodes(tmp,(*list)->prev);
 					print_list(tmp);
 				}
-				list = (*list)->prev;
+				(*list) = (*list)->prev;
 			}
 		}
 	}
