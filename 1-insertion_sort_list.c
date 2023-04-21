@@ -14,6 +14,7 @@ void exchange_nodes(listint_t *node1, listint_t *node2)
 	tmp = node1->prev;
 	node1->prev = node2->prev;
 	node2->prev = tmp;
+}
 /**
 *insertion_sort-that sorts a doubly linked list of integers in ascending order
 *list-doubly linked list to be sorted
