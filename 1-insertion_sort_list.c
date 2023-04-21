@@ -1,4 +1,12 @@
 #include"sort.h"
+listint_t *create_node(void)
+{
+	listint_t *node = malloc(sizeof(listint_t));
+
+	if (node == NULL)
+		return (NULL);
+	return (node);
+}
 /**
 *insertion_sort-that sorts a doubly linked list of integers in ascending order
 *list-doubly linked list to be sorted
@@ -12,8 +20,9 @@ void insertion_sort_list(listint_t **list)
 		(*list) = (*list)->next;
 		if((*list)->n < (*list)->prev->n)
 		{
-			tmp = (*list)->prev->n;
-			(*list)->prev->n = (*list)->n;
+			node->n = (*list)->n;
+			(*list)->prev->prev = node;
+			node
 			(*list)->n = tmp;
 		}
 	}
