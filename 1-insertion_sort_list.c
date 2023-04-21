@@ -5,6 +5,8 @@
 **/
 void insertion_sort_list(listint_t **list)
 {
+	int tmp;
+
 	while((*list)->next)
 	{
 		(*list) = (*list)->next;
