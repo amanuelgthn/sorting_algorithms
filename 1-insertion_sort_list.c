@@ -20,9 +20,8 @@ void insertion_sort_list(listint_t **list)
 			next = current->next;
 			current->next = prev;
 			current->prev = NULL;
-			current = next;
 			print_list(current);
 		}
-		
+		current = next;
 	}
 }
