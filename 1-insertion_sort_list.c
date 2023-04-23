@@ -10,11 +10,19 @@ void insertion_sort_list(listint_t **list)
 	while(current->next)
 	{
 		next= current->next;
-		if(prev == NULL || current->n <= prev->n)
+		if(prev == NULL)
 		{
 			prev = current;
 			current = next;
-			print_list(prev);
 		}
+		while(current->data < prev->data)
+		{
+			next = current->next;
+			current->next = prev;
+			current->prev = NULL;
+			current = next;
+			print_list(current);
+		}
+		
 	}
 }
