@@ -21,11 +21,14 @@ void insertion_sort_list(listint_t **list)
 		next = current->next;
 		if (current->n < prev->n)
 		{
-			current->next = prev;
-			current->prev = NULL;
+			prev->next = current->next;
+			if(prev->prev)
+				prev->prev->next = current;
+			current->prev = prev->prev;
+			prev->prev = current;
+			prev = current->prev;
 			print_list(current);
 		}
-		prev = current;
 		current = next;
 	}
 }
