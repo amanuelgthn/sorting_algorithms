@@ -16,12 +16,15 @@ void insertion_sort_list(listint_t **list)
 			current = next;
 		}
 	}
-	while(current && current->n < prev->n)
+	while(current)
 	{
 		next = current->next;
-		current->next = prev;
-		current->prev = NULL;
-		print_list(current);
+		if (current->n < prev->n)
+		{
+			current->next = prev;
+			current->prev = NULL;
+			print_list(current);
+		}
 		prev = current;
 		current = next;
 	}
