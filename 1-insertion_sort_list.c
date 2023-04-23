@@ -3,32 +3,33 @@
 *insertion_sort-that sorts a doubly linked list of integers in ascending order
 *list-doubly linked list to be sorted
 **/
-void insertion_sort_list(listint_t **list)
 {
-	listint_t *current = *list, *prev = NULL, *next = NULL;
-	
-	if(current->next)
-	{
-		next= current->next;
-		if(prev == NULL)
-		{
-			prev = current;
-			current = next;
-		}
-	}
-	while(current->next)
-	{
-		next = current->next;
-		if (current->n < prev->n)
-		{
-			prev->next = current->next;
-			if(prev->prev)
-				prev->prev->next = current;
-			current->prev = prev->prev;
-			prev->prev = current;
-			prev = current->prev;
-			print_list(current);
-		}
-		current = next;
-	}
+    if (list == NULL || *list == NULL || (*list)->next == NULL)
+        return;
+
+    listint_t *current = (*list)->next, *prev = current->prev, *next = current->next;
+
+    while (current != NULL)
+    {
+        prev = current->prev;
+        next = current->next;
+
+        while (prev != NULL && prev->n > current->n)
+        {
+            next = current;
+            current = prev;
+            prev = prev->prev;
+            next->prev = current;
+            current->next = next;
+            current->prev = prev;
+            if (prev)
+                prev->next = current;
+            else
+                *list = current;
+            print_list(*list);
+        }
+
+        current = next;
+    }
 }
+
