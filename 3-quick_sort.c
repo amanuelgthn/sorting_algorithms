@@ -11,7 +11,7 @@ void sort_quick(int *arr, int low, int high)
 
 	if (low >= high)
 	{
-		print_array(arr);
+		print_array(arr,high);
 		return;
 	}
 	for (i = low; i < high; i++)
