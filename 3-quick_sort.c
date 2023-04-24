@@ -7,7 +7,7 @@
 void sort_quick(int *arr, int low, int high)
 {
 	int pivot = arr[high];
-	int j = low, tmp;
+	int j = low, tmp, i;
 
 	if (low >= high)
 	{
