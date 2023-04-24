@@ -8,6 +8,7 @@ void selection_sort(int *array, size_t size)
 {
 	size_t i = 0, j, index;
 	int tmp;
+	bool swap;
 
 	for (;i < size; i++)
 	{
@@ -19,10 +20,15 @@ void selection_sort(int *array, size_t size)
 			{
 				tmp = array[j];
 				index = j;
+				bool = True;
 			}
 		}
-		array[index] = array[i];
-		array[i] = tmp;
-		print_array(array, size);
+		if (bool == True)
+		{
+			array[index] = array[i];
+			array[i] = tmp;
+			print_array(array, size);
+			bool = False;
+		}
 	}
 }
