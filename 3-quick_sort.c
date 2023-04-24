@@ -8,6 +8,7 @@
  */
 void sort_quick(int *array, int low, int high)
 {
+	int print_index = high;
     if (low < high)
     {
         int pivot = array[high];
@@ -21,14 +22,14 @@ void sort_quick(int *array, int low, int high)
                 tmp = array[i];
                 array[i] = array[j];
                 array[j] = tmp;
-                print_array(array, high + 1);
+                print_array(array, print_index);
             }
         }
 
         tmp = array[i + 1];
         array[i + 1] = array[high];
         array[high] = tmp;
-        print_array(array, high + 1);
+        print_array(array, print_index);
 
         sort_quick(array, low, i);
         sort_quick(array, i + 2, high);
