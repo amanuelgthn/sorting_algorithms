@@ -1,9 +1,9 @@
-#include"sort.h"
+#include"sort"
 /**
-*selection_sort-a function that sorts an array of integers in ascending order using the Selection sort
-*@array:array to be sorted
-*@size:size of the array to be sorted
-**/
+ *selection_sort-function that sorts array in ascending order
+ *@array:array to be sorted
+ *@size:size of the array to be sorted
+ **/
 void selection_sort(int *array, size_t size)
 {
 	size_t i = 0, j, index;
