@@ -23,7 +23,7 @@ void selection_sort(int *array, size_t size)
 				swap = True;
 			}
 		}
-		if (bool == True)
+		if (swap == True)
 		{
 			array[index] = array[i];
 			array[i] = tmp;
