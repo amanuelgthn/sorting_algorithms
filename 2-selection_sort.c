@@ -20,7 +20,7 @@ void selection_sort(int *array, size_t size)
 			{
 				tmp = array[j];
 				index = j;
-				bool = True;
+				swap = True;
 			}
 		}
 		if (bool == True)
@@ -28,7 +28,7 @@ void selection_sort(int *array, size_t size)
 			array[index] = array[i];
 			array[i] = tmp;
 			print_array(array, size);
-			bool = False;
+			swap = False;
 		}
 	}
 }
