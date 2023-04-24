@@ -1,4 +1,4 @@
-#include"sort"
+#include"sort.h"
 /**
  *selection_sort-function that sorts array in ascending order
  *@array:array to be sorted
