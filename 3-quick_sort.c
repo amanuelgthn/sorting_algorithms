@@ -11,29 +11,27 @@ void sort_quick(int *array, int low, int high)
     if (low < high)
     {
         int pivot = array[high];
-        int i = low - 1;
+        int i = low - 1, tmp, j;
 
-        for (int j = low; j <= high - 1; j++)
+        for (j = low; j <= high - 1; j++)
         {
             if (array[j] <= pivot)
             {
                 i++;
-                int tmp = array[i];
+                tmp = array[i];
                 array[i] = array[j];
                 array[j] = tmp;
                 print_array(array, high + 1);
             }
         }
 
-        int tmp = array[i + 1];
+        tmp = array[i + 1];
         array[i + 1] = array[high];
         array[high] = tmp;
         print_array(array, high + 1);
 
-        int pi = i + 1;
-
-        sort_quick(array, low, pi - 1);
-        sort_quick(array, pi + 1, high);
+        sort_quick(array, low, i);
+        sort_quick(array, i + 2, high);
     }
 }
 /**
