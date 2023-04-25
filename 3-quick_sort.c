@@ -9,30 +9,27 @@
 void sort_quick(int *array, int low, int high)
 {
 	int print_index = high;
-    if (low < high)
-    {
-        int pivot = array[high];
-        int i = low - 1, tmp, j;
-
-        for (j = low; j <= high - 1; j++)
-        {
-            if (array[j] <= pivot)
-            {
-                i++;
-                tmp = array[i];
-                array[i] = array[j];
-                array[j] = tmp;
-            }
-        }
-
-        tmp = array[i + 1];
-        array[i + 1] = array[high];
-        array[high] = tmp;
-        print_array(array, print_index);
-
-        sort_quick(array, low, i);
-        sort_quick(array, i + 2, high);
-    }
+	if (low < high)
+	{
+		int pivot = array[high];
+		int i = low - 1, tmp, j;
+		for (j = low; j <= high - 1; j++)
+		{
+			if (array[j] <= pivot)
+			{
+				i++;
+				tmp = array[i];
+				array[i] = array[j];
+				array[j] = tmp;
+			}
+		}
+		tmp = array[i + 1];
+		array[i + 1] = array[high];
+		array[high] = tmp;
+		print_array(array, print_index);
+		sort_quick(array, low, i);
+		sort_quick(array, i + 2, high);
+	}
 }
 /**
  * quick_sort - function that sorts an array of integers in ascending order
@@ -42,8 +39,7 @@ void sort_quick(int *array, int low, int high)
  */
 void quick_sort(int *array, size_t size)
 {
-    if (array == NULL || size < 2)
-        return;
-
-    sort_quick(array, 0, size - 1);
+	if (array == NULL || size < 2)
+		return;
+	sort_quick(array, 0, size - 1);
 }
