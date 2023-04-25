@@ -21,7 +21,8 @@ void sort_quick(int *array, int low, int high, size_t size)
 				tmp = array[i];
 				array[i] = array[j];
 				array[j] = tmp;
-				print_array(array, size);
+				if(i != j)
+				{print_array(array, size);
 			}
 		}
 		tmp = array[i + 1];
