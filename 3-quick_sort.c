@@ -5,8 +5,9 @@
  * @array: The array to be sorted
  * @low: The starting index of the array or subarray to be sorted
  * @high: The ending index of the array or subarray to be sorted
+ * @size: The size of the array to be sorted
  */
-void sort_quick(int *array, int low, int high)
+void sort_quick(int *array, int low, int high， size_t size)
 {
 	int print_index = high;
 	if (low < high)
@@ -26,9 +27,9 @@ void sort_quick(int *array, int low, int high)
 		tmp = array[i + 1];
 		array[i + 1] = array[high];
 		array[high] = tmp;
-		print_array(array, print_index);
-		sort_quick(array, low, i);
-		sort_quick(array, i + 2, high);
+		print_array(array, size);
+		sort_quick(array, low, i, size);
+		sort_quick(array, i + 2, high, size);
 	}
 }
 /**
@@ -41,5 +42,5 @@ void quick_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 		return;
-	sort_quick(array, 0, size - 1);
+	sort_quick(array, 0, size - 1, size);
 }
