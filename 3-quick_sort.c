@@ -9,7 +9,6 @@
  */
 void sort_quick(int *array, int low, int high, size_t size)
 {
-	int print_index = high;
 	if (low < high)
 	{
 		int pivot = array[high];
