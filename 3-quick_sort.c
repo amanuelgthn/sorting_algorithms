@@ -22,7 +22,6 @@ void sort_quick(int *array, int low, int high)
                 tmp = array[i];
                 array[i] = array[j];
                 array[j] = tmp;
-                print_array(array, print_index);
             }
         }
 
