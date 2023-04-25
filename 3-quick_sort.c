@@ -7,7 +7,7 @@
  * @high: The ending index of the array or subarray to be sorted
  * @size: The size of the array to be sorted
  */
-void sort_quick(int *array, int low, int high， size_t size)
+void sort_quick(int *array, int low, int high, size_t size)
 {
 	int print_index = high;
 	if (low < high)
