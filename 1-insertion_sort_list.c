@@ -15,9 +15,12 @@ void insertion_sort_list(listint_t **list)
 		(*list) = (*list)->next;
 		if (head == NULL || head->n > current->n)
 		{
+			listint_t *tmp;
+			tmp = current->next;
 			current->next = head;
 			current->prev = NULL;
 			head = current;
+			head->next = tmp;
 			print_list(head);
 		}
 		else
