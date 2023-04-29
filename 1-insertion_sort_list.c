@@ -3,42 +3,44 @@
 *insertion_sort-that sorts a doubly linked list of integers in ascending order
 *list-doubly linked list to be sorted
 **/
-void insertion_sort_list(listint_t **list)	
+void insertion_sort_list(listint_t **list)
 {
-	listint_t *head = NULL;
-
-	if (list == NULL || (*list)->next == NULL)
+	if (list == NULL || *list == NULL || (*list)->next == NULL) {
 		return;
-	while (list != NULL)
+	}
+
+	listint_t *head = NULL;
+	listint_t *current = *list;
+
+	while (current != NULL)
 	{
-		listint_t *current = *list;
-		(*list) = (*list)->next;
-		if (head == NULL || head->n > current->n)
+		listint_t *next = current->next;
+		if (head == NULL || head->n >= current->n)
 		{
-			current->next = head;
 			current->prev = NULL;
+			current->next = head;
+			if (head != NULL) {
+				head->prev = current;
+			}
 			head = current;
-			print_list(head);
 		}
 		else
 		{
 			listint_t *p = head;
-			while (p != NULL)
+			while (p != NULL && p->n < current->n)
 			{
-				if (p->next == NULL || current->n < p->next->n)
-				{
-					current->prev = p;
-					current->next = p->next;
-					if(p->next != NULL)
-						p->next->prev = current;
-					p->next = current;
-					print_list(p);
-					break;
-				}
 				p = p->next;
 			}
+
+			if (p != NULL) {
+				current->prev = p->prev;
+				current->next = p;
+				p->prev->next = current;
+				p->prev = current;
+			}
 		}
+		current = next;
+		print_list(head);
 	}
+	*list = head;
 }
-					
-				
