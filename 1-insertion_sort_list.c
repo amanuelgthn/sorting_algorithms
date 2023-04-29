@@ -26,11 +26,11 @@ void insertion_sort_list(listint_t **list)
 			{
 				if (p->next != NULL || current->n < p->next->n)
 				{
+					current->prev = p-;
 					current->next = p->next;
-					current->prev = p->next->prev;
+					if(p->next != NULL)
+						p->next->prev = current;
 					p->next = current;
-					if(current->next)
-						p->next->prev = current->next->prev;
 					break;
 				}
 				p = p->next;
