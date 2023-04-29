@@ -1,4 +1,5 @@
 #include"sort.h"
+
 /**
 *insertion_sort-that sorts a doubly linked list of integers in ascending order
 *list-doubly linked list to be sorted
@@ -18,11 +19,8 @@ void insertion_sort_list(listint_t **list)
 		if (head == NULL || head->n > current->n)
 		{
 			tmpnext = current->next;
-			current->next = head;
-			current->prev = NULL;
-			head = current;
+			insert_node(head, current);
 			head->next = tmpnext;
-			print_list(head);
 		}
 		else
 		{
@@ -31,18 +29,34 @@ void insertion_sort_list(listint_t **list)
 			{
 				if (p->next == NULL || current->n < p->next->n)
 				{
-					current->prev = p;
-					current->next = p->next;
-					if(p->next != NULL)
-						p->next->prev = current;
-					p->next = current;
-					print_list(head);
+					insert_node(p, current);
 					break;
 				}
 				p = p->next;
 			}
 		}
 	}
-	*list = head;
 	print_list(*list);
+}
+
+void insert_node(listint_t *head, listint_t *node)
+{
+	if (head == NULL)
+	{
+		head = node;
+		return;
+	}
+	if (head->n > node->n)
+	{
+		node->next = head;
+		head = node;
+		return;
+	}
+	listint_t *p = head;
+	while (p->next != NULL && p->next->n < node->n)
+	{
+		p = p->next;
+	}
+	node->next = p->next;
+	p->next = node;
 }
