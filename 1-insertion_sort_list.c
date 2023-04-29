@@ -41,6 +41,7 @@ void insertion_sort_list(listint_t **list)
 
 void insert_node(listint_t *head, listint_t *node)
 {
+	listint_t *p = NULL;
 	if (head == NULL)
 	{
 		head = node;
@@ -52,7 +53,7 @@ void insert_node(listint_t *head, listint_t *node)
 		head = node;
 		return;
 	}
-	listint_t *p = head;
+	p = head;
 	while (p->next != NULL && p->next->n < node->n)
 	{
 		p = p->next;
