@@ -29,7 +29,8 @@ void insertion_sort_list(listint_t **list)
 					current->next = p->next;
 					current->prev = p->next->prev;
 					p->next = current;
-					p->next->prev = current->next->prev;
+					if(current->next)
+						p->next->prev = current->next->prev;
 					break;
 				}
 				p = p->next;
