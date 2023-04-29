@@ -40,4 +40,4 @@ void insertion_sort_list(listint_t **list)
         }
         current = next;
     }
-    (*list) = head;
+    list = head;
