@@ -58,6 +58,11 @@ void insert_node(listint_t *head, listint_t *node)
 	{
 		p = p->next;
 	}
-	node->next = p->next;
-	p->next = node;
+	if (p->prev != NULL)
+	{
+		p->prev->next = node;
+	}
+	node->prev = p->prev;
+	node->next = p;
+	p->prev = node;
 }
