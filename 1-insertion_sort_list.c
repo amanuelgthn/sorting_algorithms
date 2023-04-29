@@ -5,45 +5,40 @@
 **/
 void insertion_sort_list(listint_t **list)
 {
-	
-	listint_t *head = NULL;
-	listint_t *current = NULL;
+    if (list == NULL || *list == NULL || (*list)->next == NULL) {
+        return;
+    }
 
-	if (list == NULL || *list == NULL || (*list)->next == NULL) {
-		return;
-	}
+    listint_t *head = NULL;
+    listint_t *current = *list;
 
-	 current = *list;
+    while (current != NULL)
+    {
+        listint_t *next = current->next;
+        if (head == NULL || head->n >= current->n)
+        {
+            current->prev = NULL;
+            current->next = head;
+            if (head != NULL) {
+                head->prev = current;
+            }
+            head = current;
+        }
+        else
+        {
+            listint_t *p = head;
+            while (p != NULL && p->n < current->n)
+            {
+                p = p->next;
+            }
 
-	while (current != NULL)
-	{
-		listint_t *next = current->next;
-		if (head == NULL || head->n >= current->n)
-		{
-			current->prev = NULL;
-			current->next = head;
-			if (head != NULL) {
-				head->prev = current;
-			}
-			head = current;
-		}
-		else
-		{
-			listint_t *p = head;
-			while (p != NULL && p->n < current->n)
-			{
-				p = p->next;
-			}
-
-			if (p != NULL) {
-				current->prev = p->prev;
-				current->next = p;
-				p->prev->next = current;
-				p->prev = current;
-			}
-		}
-		current = next;
-		print_list(head);
-	}
-	*list = head;
-}
+            if (p != NULL) {
+                current->prev = p->prev;
+                current->next = p;
+                p->prev->next = current;
+                p->prev = current;
+            }
+        }
+        current = next;
+    }
+    *list = head;
