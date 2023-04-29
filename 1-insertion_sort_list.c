@@ -11,8 +11,8 @@ void insertion_sort_list(listint_t **list)
 		return;
 	while (list != NULL)
 	{
-		listint_t *current = list;
-		list = (*list)->next;
+		listint_t *current = *list;
+		list = list->next;
 		if (head == NULL || head->n > current->n)
 		{
 			current->next = head;
