@@ -40,5 +40,5 @@ void insertion_sort_list(listint_t **list)
 			}
 		}
 	}
-	(*list) = head;
+	*list = head;
 }
