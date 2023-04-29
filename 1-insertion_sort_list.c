@@ -5,40 +5,39 @@
 **/
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *head = NULL;
-    listint_t *current = *list;
-    if (list == NULL || *list == NULL || (*list)->next == NULL) {
-        return;
-    }
-    current = (*list);
-    while (current != NULL)
-    {
-        listint_t *next = current->next;
-        if (head == NULL || head->n >= current->n)
-        {
-            current->prev = NULL;
-            current->next = head;
-            if (head != NULL) {
-                head->prev = current;
-            }
-            head = current;
-        }
-        else
-        {
-            listint_t *p = head;
-            while (p != NULL && p->n < current->n)
-            {
-                p = p->next;
-            }
+	{
+	listint_t *head = NULL;
 
-            if (p != NULL) {
-                current->prev = p->prev;
-                current->next = p;
-                p->prev->next = current;
-                p->prev = current;
-            }
-        }
-        current = next;
-    }
-    (*list) = head;
+	if (list == NULL || (*list)->next == NULL)
+		return;
+	while (list != NULL)
+	{
+		listint_t *current = *list;
+		(*list) = (*list)->next;
+		if (head == NULL || head->n > current->n)
+		{
+			current->next = head;
+			current->prev = NULL;
+			head = current;
+			print_list(head);
+		}
+		else
+		{
+			listint_t *p = head;
+			while (p != NULL)
+			{
+				if (p->next == NULL || current->n < p->next->n)
+				{
+					current->prev = p;
+					current->next = p->next;
+					if(p->next != NULL)
+						p->next->prev = current;
+					p->next = current;
+					print_list(p);
+					break;
+				}
+				p = p->next;
+			}
+		}
+	}
 }
