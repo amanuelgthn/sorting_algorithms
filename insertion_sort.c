@@ -1,37 +1,37 @@
-#include "sort.h"
+void insertion_sort_list(listint_t **list)	
+{
+	listint_t *head = NULL;
 
-void exchange_nodes(listint_t *node_high, listint_t *node_low) {
-  listint_t *temp;
-
-  if (node_high == node_low) {
-    return;
-  }
-
-  temp = node_high->next;
-  node_high->next = node_low->next;
-  node_low->next = temp;
-
-  temp = node_high->prev;
-  node_high->prev = node_low->prev;
-  node_low->prev = temp;
-}
-
-void insertion_sort_list(listint_t **list) {
-  listint_t *current = *list;
-  listint_t *prev = NULL;
-
-  while (current != NULL) {
-    if (current->n < (prev == NULL) ? INT_MAX : prev->n) {
-      exchange_nodes(current, prev);
-
-      // Move on to the next node.
-      prev = current;
-      current = current->next;
-    } else {
-      // Move on to the next node.
-      prev = current;
-      current = current->next;
-    }
-  }
-  *list = prev;
+	if (list == NULL || (*list)->next == NULL)
+		return;
+	while (list != NULL)
+	{
+		listint_t *current = *list;
+		(*list) = (*list)->next;
+		if (head == NULL || head->n > current->n)
+		{
+			current->next = head;
+			current->prev = NULL;
+			head = current;
+			print_list(head);
+		}
+		else
+		{
+			listint_t *p = head;
+			while (p != NULL)
+			{
+				if (p->next == NULL || current->n < p->next->n)
+				{
+					current->prev = p;
+					current->next = p->next;
+					if(p->next != NULL)
+						p->next->prev = current;
+					p->next = current;
+					print_list(p);
+					break;
+				}
+				p = p->next;
+			}
+		}
+	}
 }
