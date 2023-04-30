@@ -25,7 +25,7 @@ void print_head(const listint_t *list)
 **/
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *head = NULL,*current = NULL, p = NULL, *check = NULL;
+	listint_t *head = NULL,*current = NULL, *p = NULL, *check = NULL;
 	bool swap = false;
 
 	if (list == NULL || (*list)->next == NULL)
