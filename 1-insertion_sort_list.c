@@ -11,13 +11,33 @@ void print_head(const listint_t *list)
 	i = 0;
 	while (list)
 	{
-        if (i > 0)
-            printf(", ");
-        printf("%d", list->n);
-        ++i;
-        list = list->next;
+		if (i > 0)
+			printf(", ");
+		printf("%d", list->n);
+		++i;
+		list = list->next;
 	}
 	printf(", ");
+}
+/**
+*check_sorted-function to check if a list is sorted
+*@list:list to be checked if it is sorted
+*Return: True if the list is sorted and False if not
+**/
+bool check_sorted(const listint_t *list)
+{
+	bool swap = false;
+	listint_t *check = list;
+	while(check->next)
+	{
+		if(check->n > check->next->n)
+		{
+			swap = true;
+			return True;
+		}
+		check = check->next;
+	}
+	return false;
 }
 /**
 *insertion_sort-that sorts a doubly linked list of integers in ascending order
@@ -25,21 +45,12 @@ void print_head(const listint_t *list)
 **/
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *head = NULL,*current = NULL, *p = NULL, *check = NULL;
+	listint_t *head = NULL, *current = NULL, *p = NULL, *check = NULL;
 	bool swap = false;
 
 	if (list == NULL || (*list)->next == NULL)
 		return;
-	check = *list;
-	while(check->next)
-	{
-		if(check->n > check->next->n)
-		{
-			swap = true;
-			break;
-		}
-		check = check->next;
-	}
+	swap = check_sorted(*list);
 	while ((*list)!= NULL && swap == true)
 	{
 		current = *list;
