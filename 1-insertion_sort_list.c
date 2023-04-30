@@ -30,6 +30,8 @@ void insertion_sort_list(listint_t **list)
 			current->prev = NULL;
 			head = current;
 			print_list(head);
+			printf("List being Traversed\n");
+			print_list(*list)
 		}
 		/*else
 		{
