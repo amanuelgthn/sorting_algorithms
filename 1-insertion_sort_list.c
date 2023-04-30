@@ -1,5 +1,25 @@
 #include"sort.h"
 /**
+ * print_head - Prints a list of integers
+ *
+ * @list: The list to be printed
+ */
+void print_head(const listint_t *list)
+{
+	int i;
+
+	i = 0;
+	while (list)
+	{
+        if (i > 0)
+            printf(", ");
+        printf("%d", list->n);
+        ++i;
+        list = list->next;
+	}
+	printf(", ");
+}
+/**
 *insertion_sort-that sorts a doubly linked list of integers in ascending order
 *list-doubly linked list to be sorted
 **/
@@ -29,8 +49,7 @@ void insertion_sort_list(listint_t **list)
 			current->next = head;
 			current->prev = NULL;
 			head = current;
-			print_list(head);
-			printf("List being Traversed\n");
+			print_head(head);
 			print_list(*list);
 		}
 		/*else
