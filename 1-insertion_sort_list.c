@@ -66,7 +66,7 @@ void insertion_sort_list(listint_t **list)
 			current->next = head;
 			current->prev = NULL;
 			head = current;
-			print_sorted(head,list);
+			print_sorted(head,*list);
 		}
 		else
 		{
@@ -80,7 +80,7 @@ void insertion_sort_list(listint_t **list)
 					if (p->next != NULL)
 						p->next->prev = current;
 					p->next = current;
-					print_sorted(head,list);
+					print_sorted(head, *list);
 					break;
 				}
 				p = p->next;
