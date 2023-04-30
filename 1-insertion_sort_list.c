@@ -26,12 +26,10 @@ void print_head(const listint_t *list)
 **/
 bool check_sorted(const listint_t *list)
 {
-	bool swap = false;
 	while(list->next)
 	{
 		if(list->n > list->next->n)
 		{
-			swap = true;
 			return true;
 		}
 		list = list->next;
