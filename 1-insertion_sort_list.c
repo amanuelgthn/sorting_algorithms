@@ -28,6 +28,7 @@ void print_sorted(const listint_t *head, const listint_t *list)
 		print_head(head);
 		print_list(list);
 	}
+}
 /**
 *check_sorted-function to check if a list is sorted
 *@list:list to be checked if it is sorted
