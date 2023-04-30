@@ -19,6 +19,11 @@ void print_head(const listint_t *list)
 	}
 	printf(", ");
 }
+/**
+*print_sorted-print sorted list
+*@head:list containing sorted list
+*@list:list containng the remaining unsorted list
+**/
 void print_sorted(const listint_t *head, const listint_t *list)
 {
 	if ((list) == NULL)
