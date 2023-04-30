@@ -52,7 +52,7 @@ bool check_sorted(const listint_t *list)
 	return (false);
 }
 /**
-*insertion_sort_list-that sorts a doubly linked list of integers in ascending order
+*insertion_sort_list-sorts a doubly linked list of integers in ascending order
 *@list:doubly linked list to be sorted
 **/
 void insertion_sort_list(listint_t **list)
@@ -72,7 +72,7 @@ void insertion_sort_list(listint_t **list)
 			current->next = head;
 			current->prev = NULL;
 			head = current;
-			print_sorted(head,*list);
+			print_sorted(head, *list);
 		}
 		else
 		{
