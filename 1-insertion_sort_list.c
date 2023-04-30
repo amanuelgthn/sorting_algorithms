@@ -20,6 +20,8 @@ void insertion_sort_list(listint_t **list)
 		}
 		check = check->next;
 	}
+	if (swap == false)
+		print_list(*list);
 	while ((*list)!= NULL && swap == true)
 	{
 		current = *list;
