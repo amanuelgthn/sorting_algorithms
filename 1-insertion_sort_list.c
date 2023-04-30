@@ -19,6 +19,15 @@ void print_head(const listint_t *list)
 	}
 	printf(", ");
 }
+void print_sorted(const listint_t *head, const listint_t *list)
+{
+	if ((list) == NULL)
+		print_list(head);
+	else
+	{
+		print_head(head);
+		print_list(list);
+	}
 /**
 *check_sorted-function to check if a list is sorted
 *@list:list to be checked if it is sorted
@@ -37,8 +46,8 @@ bool check_sorted(const listint_t *list)
 	return (false);
 }
 /**
-*insertion_sort-that sorts a doubly linked list of integers in ascending order
-*list-doubly linked list to be sorted
+*insertion_sort_list-that sorts a doubly linked list of integers in ascending order
+*@list:doubly linked list to be sorted
 **/
 void insertion_sort_list(listint_t **list)
 {
@@ -57,13 +66,7 @@ void insertion_sort_list(listint_t **list)
 			current->next = head;
 			current->prev = NULL;
 			head = current;
-			if ((*list) == NULL)
-				print_list(head);
-			else
-			{
-				print_head(head);
-				print_list(*list);
-			}
+			print_sorted(head,list);
 		}
 		else
 		{
@@ -77,19 +80,13 @@ void insertion_sort_list(listint_t **list)
 					if (p->next != NULL)
 						p->next->prev = current;
 					p->next = current;
-					if ((*list) == NULL)
-						print_list(head);
-					else
-					{
-						print_head(head);
-						print_list(*list);
-					}
+					print_sorted(head,list);
 					break;
 				}
 				p = p->next;
 			}
 		}
 	}
-	if(swap == true)
+	if (swap == true)
 		*list = head;
 }
