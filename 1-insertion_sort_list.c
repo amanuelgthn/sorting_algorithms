@@ -52,7 +52,7 @@ void insertion_sort_list(listint_t **list)
 			print_head(head);
 			print_list(*list);
 		}
-		/*else
+		else
 		{
 			p = head;
 			while (p != NULL)
@@ -64,12 +64,13 @@ void insertion_sort_list(listint_t **list)
 					if(p->next != NULL)
 						p->next->prev = current;
 					p->next = current;
-					print_list(head);
+					print_head(head);
+					print_list(*list);
 					break;
 				}
 				p = p->next;
 			}
-		}*/
+		}
 	}
 	if(swap == true)
 		*list = head;
