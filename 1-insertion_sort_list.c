@@ -20,7 +20,7 @@ void insertion_sort_list(listint_t **list)
 		}
 		check = check->next;
 	}
-	while ((*list)!= NULL && swap == True)
+	while ((*list)!= NULL && swap == true)
 	{
 		current = *list;
 		(*list) = (*list)->next;
