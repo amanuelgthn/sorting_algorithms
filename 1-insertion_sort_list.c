@@ -6,7 +6,7 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *head = NULL,*current = NULL, *p = NULL, *check = NULL;
-	bool swap = False;
+	bool swap = false;
 
 	if (list == NULL || (*list)->next == NULL)
 		return;
@@ -15,7 +15,7 @@ void insertion_sort_list(listint_t **list)
 	{
 		if(check->n > check->next->n)
 		{
-			swap = True;
+			swap = true;
 			break;
 		}
 		check = check->next;
@@ -33,7 +33,7 @@ void insertion_sort_list(listint_t **list)
 		}
 		else
 		{
-			listint_t *p = head;
+			p = head;
 			while (p != NULL)
 			{
 				if (p->next == NULL || current->n < p->next->n)
