@@ -33,4 +33,5 @@ void radix_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
 void insert_node(listint_t *head, listint_t *node);
+void print_head(const listint_t *list);
 #endif /* __sort_h__ */
