@@ -26,15 +26,15 @@ void print_head(const listint_t *list)
 **/
 bool check_sorted(const listint_t *list)
 {
-	while(list->next)
+	while (list->next)
 	{
-		if(list->n > list->next->n)
+		if (list->n > list->next->n)
 		{
-			return true;
+			return (true);
 		}
 		list = list->next;
 	}
-	return false;
+	return (false);
 }
 /**
 *insertion_sort-that sorts a doubly linked list of integers in ascending order
@@ -48,7 +48,7 @@ void insertion_sort_list(listint_t **list)
 	if (list == NULL || (*list)->next == NULL)
 		return;
 	swap = check_sorted(*list);
-	while ((*list)!= NULL && swap == true)
+	while ((*list) != NULL && swap == true)
 	{
 		current = *list;
 		(*list) = (*list)->next;
@@ -57,7 +57,7 @@ void insertion_sort_list(listint_t **list)
 			current->next = head;
 			current->prev = NULL;
 			head = current;
-			if((*list) == NULL)
+			if ((*list) == NULL)
 				print_list(head);
 			else
 			{
@@ -74,10 +74,10 @@ void insertion_sort_list(listint_t **list)
 				{
 					current->prev = p;
 					current->next = p->next;
-					if(p->next != NULL)
+					if (p->next != NULL)
 						p->next->prev = current;
 					p->next = current;
-					if((*list) == NULL)
+					if ((*list) == NULL)
 						print_list(head);
 					else
 					{
