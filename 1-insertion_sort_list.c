@@ -27,13 +27,13 @@ void print_head(const listint_t *list)
 bool check_sorted(const listint_t *list)
 {
 	bool swap = false;
-	listint_t *check = list;
+	listint_t check = list;
 	while(check->next)
 	{
 		if(check->n > check->next->n)
 		{
 			swap = true;
-			return True;
+			return true;
 		}
 		check = check->next;
 	}
@@ -45,7 +45,7 @@ bool check_sorted(const listint_t *list)
 **/
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *head = NULL, *current = NULL, *p = NULL, *check = NULL;
+	listint_t *head = NULL, *current = NULL, *p = NULL;
 	bool swap = false;
 
 	if (list == NULL || (*list)->next == NULL)
