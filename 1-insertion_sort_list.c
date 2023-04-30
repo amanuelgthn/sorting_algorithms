@@ -27,15 +27,14 @@ void print_head(const listint_t *list)
 bool check_sorted(const listint_t *list)
 {
 	bool swap = false;
-	listint_t check = list;
-	while(check->next)
+	while(list->next)
 	{
-		if(check->n > check->next->n)
+		if(list->n > list->next->n)
 		{
 			swap = true;
 			return true;
 		}
-		check = check->next;
+		list = list->next;
 	}
 	return false;
 }
