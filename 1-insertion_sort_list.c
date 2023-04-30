@@ -31,7 +31,7 @@ void insertion_sort_list(listint_t **list)
 			head = current;
 			print_list(head);
 		}
-		else
+		/*else
 		{
 			p = head;
 			while (p != NULL)
@@ -48,7 +48,7 @@ void insertion_sort_list(listint_t **list)
 				}
 				p = p->next;
 			}
-		}
+		}*/
 	}
 	if(swap == true)
 		*list = head;
