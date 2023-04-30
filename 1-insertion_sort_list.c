@@ -5,12 +5,22 @@
 **/
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *head = NULL;
-	listint_t *current = NULL;
+	listint_t *head = NULL,*current = NULL, *p = NULL, *check = NULL;
+	bool swap = False;
 
 	if (list == NULL || (*list)->next == NULL)
 		return;
-	while ((*list)!= NULL)
+	check = *list;
+	while(check->next)
+	{
+		if(check->n > check->next->n)
+		{
+			swap = True;
+			break;
+		}
+		check = check->next;
+	}
+	while ((*list)!= NULL && swap == True)
 	{
 		current = *list;
 		(*list) = (*list)->next;
